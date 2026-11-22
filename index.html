@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Shahi Rajwadi Rasoi</title>
+
+<meta name="description" content="Authentic Indian papad: urad, moong, masala, punjabi, garlic, jeera, rice and spicy varieties. Bulk orders welcome.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{--bg:#fff8e7;--surface:#fff;--text:#3b2314;--muted:#7a5c48;--red:#d62828;--orange:#f77f00;--yellow:#fcbf49;--green:#2a9d4a;--cream:#fdf0d0;--shadow:0 8px 24px rgba(120,60,10,.15);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d130c;--surface:#2b1c12;--text:#fbeed8;--muted:#cdb59c;--cream:#33220f;--shadow:0 8px 24px rgba(0,0,0,.4);color-scheme:dark}}
+
+:root[data-theme="dark"]{--bg:#1d130c;--surface:#2b1c12;--text:#fbeed8;--muted:#cdb59c;--cream:#33220f;--shadow:0 8px 24px rgba(0,0,0,.4);color-scheme:dark}
+
+html{scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+
+*,*::before,*::after{box-sizing:inherit}
+
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Poppins',system-ui,sans-serif;line-height:1.6}
+
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.2;margin:0 0 .5em}
+
+a{color:inherit;text-decoration:none}
+
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+
+section{padding:72px 0}
+
+.title{text-align:center;margin-bottom:40px}
+
+.title h2{font-size:clamp(1.6rem,4vw,2.4rem)}
+
+.title span{display:block;width:80px;height:5px;margin:10px auto 0;border-radius:9px;background:linear-gradient(90deg,var(--red),var(--orange),var(--yellow),var(--green))}
+
+.btn{display:inline-block;border:0;cursor:pointer;font:600 .95rem 'Poppins',sans-serif;padding:12px 26px;border-radius:50px;color:#fff;background:linear-gradient(135deg,var(--red),var(--orange));box-shadow:0 6px 16px rgba(214,40,40,.3);transition:transform .25s,box-shadow .25s}
+
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(214,40,40,.4)}
+
+.btn.green{background:linear-gradient(135deg,#1f8a3b,#3cc263);box-shadow:0 6px 16px rgba(42,157,74,.3)}
+
+.btn.ghost{background:transparent;color:#fff;border:2px solid #fff;box-shadow:none}
+
+/* header */
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:*background* .3s,box-shadow .3s;background:transparent}
+
+header.stuck{background:var(--surface);box-shadow:var(--shadow)}
+
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+
+.logo{display:flex;align-items:center;gap:10px;font:800 1.5rem 'Playfair Display',serif;color:#fff}
+
+header.stuck .logo{color:var(--red)}
+
+.logo i{font-style:normal;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:radial-gradient(circle,var(--yellow),var(--orange));font-size:1.3rem}
+
+nav ul{display:flex;gap:6px;align-items:center;list-style:none;margin:0;padding:0}
+
+nav a.l{padding:8px 14px;border-radius:30px;font-weight:500;color:#fff;transition:*background* .2s}
+
+header.stuck nav a.l{color:var(--text)}
+
+nav a.l:hover{background:rgba(247,127,0,.25)}
+
+.burger{display:none;background:none;border:0;cursor:pointer;width:44px;height:44px;padding:10px}
+
+.burger b{display:block;height:3px;margin:6px 0;border-radius:3px;background:#fff;transition:.3s}
+
+header.stuck .burger b{background:var(--text)}
+
+@media(max-width:860px){.burger{display:block}
+
+nav{position:absolute;top:100%;left:0;right:0;background:var(--surface);max-height:0;overflow:hidden;transition:max-height .35s;box-shadow:var(--shadow)}
+
+nav.open{max-height:420px}nav ul{flex-direction:column;padding:14px;align-items:stretch;text-align:center}
+
+nav a.l{color:var(--text)!important}}
+
+/* hero */
+
+.hero{position:relative;height:100vh;min-height:560px;padding:0;overflow:hidden;color:#fff}
+
+.slide{position:absolute;inset:0;display:flex;align-items:center;opacity:0;visibility:hidden;transition:opacity 1s,visibility 1s}
+
+.slide.on{opacity:1;visibility:visible}
+
+.slide::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,8,0,.78),rgba(20,8,0,.35))}
+
+.s1{background:linear-gradient(135deg,#b3150f,#f77f00 60%,#fcbf49)}
+
+.s2{background:linear-gradient(135deg,#1c6b34,#7fb800 60%,#fcbf49)}
+
+.s3{background:linear-gradient(135deg,#8a1c1c,#d62828 50%,#f77f00)}
+
+.slide .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center;width:100%}
+
+.slide h1{font-size:clamp(2rem,5.5vw,3.8rem)}
+
+.slide p{font-size:1.15rem;max-width:520px;margin:0 0 26px;opacity:.95}
+
+.slide .txt>*{opacity:0;transform:translateY(30px)}
+
+.slide.on .txt>*{animation:up .8s forwards}
+
+.slide.on .txt>:nth-child(2){animation-delay:.2s}.slide.on .txt>:nth-child(3){animation-delay:.4s}
+
+@keyframes up{to{opacity:1;transform:none}}
+
+.art{display:flex;justify-content:center}
+
+.art svg{width:min(380px,80%);animation:spin 40s linear infinite;filter:drop-shadow(0 20px 30px rgba(0,0,0,.4))}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media(max-width:760px){.slide .wrap{grid-template-columns:1fr}.art{display:none}}
+
+.arrow{position:absolute;top:50%;z-index:5;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:0;cursor:pointer;background:rgba(255,255,255,.2);color:#fff;font-size:1.4rem;backdrop-filter:blur(4px);transition:*background* .2s}
+
+.arrow:hover{background:var(--orange)}.prev{left:14px}.next{right:14px}
+
+.dots{position:absolute;bottom:28px;left:0;right:0;display:flex;justify-content:center;gap:10px;z-index:5}
+
+.dots button{width:12px;height:12px;border-radius:12px;border:0;cursor:pointer;background:rgba(255,255,255,.5);transition:.3s;padding:0}
+
+.dots button.on{width:34px;background:var(--yellow)}
+
+/* about */
+
+.about{background:var(--cream)}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+
+@media(max-width:820px){.two{grid-template-columns:1fr}}
+
+.collage{position:relative;aspect-ratio:1;border-radius:30px;overflow:hidden;background:linear-gradient(135deg,var(--yellow),var(--orange));box-shadow:var(--shadow);display:grid;place-items:center}
+
+.collage svg{width:62%;animation:spin 60s linear infinite}
+
+.collage em{position:absolute;font-style:normal;font-size:3rem;animation:float 4s ease-in-out infinite}
+
+@keyframes float{50%{transform:translateY(-14px)}}
+
+.about h2{font-size:clamp(1.7rem,4vw,2.5rem);color:var(--red)}
+
+.about p{color:var(--muted);font-size:1.05rem}
+
+.stats{display:flex;gap:28px;margin:22px 0 28px;flex-wrap:wrap}
+
+.stats b{display:block;font:800 1.8rem 'Playfair Display',serif;color:var(--orange)}
+
+/* products */
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:26px}
+
+.card{background:var(--surface);border-radius:24px;overflow:hidden;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column}
+
+.card:hover{transform:translateY(-10px) rotate(-.6deg);box-shadow:0 18px 36px rgba(120,60,10,.28)}
+
+.card .pic{display:grid;place-items:center;padding:26px 0;transition:.4s}
+
+.card .pic svg{width:150px;transition:transform .5s}
+
+.card:hover .pic svg{transform:rotate(25deg) scale(1.08)}
+
+.card .body{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+
+.card h3{font-size:1.2rem;margin:0}
+
+.card p{margin:0 0 8px;color:var(--muted);font-size:.92rem;flex:1}
+
+.card .btn{text-align:center;padding:10px 18px;font-size:.88rem}
+
+/* why */
+
+.why{background:linear-gradient(135deg,#7a1010,#d62828 55%,#f77f00);color:#fff}
+
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px}
+
+.feat div{padding:30px 22px;border-radius:24px;text-align:center;background:rgba(255,255,255,.14);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.25);transition:transform .3s,*background* .3s}
+
+.feat div:hover{transform:translateY(-8px);background:rgba(255,255,255,.24)}
+
+.feat i{font-style:normal;display:grid;place-items:center;width:70px;height:70px;margin:0 auto 14px;border-radius:50%;font-size:2rem;background:var(--yellow)}
+
+.feat h3{font-size:1.15rem}.feat p{margin:0;opacity:.92;font-size:.92rem}
+
+/* cta */
+
+.cta{background:linear-gradient(120deg,var(--yellow),var(--orange));text-align:center;color:#3b1a05}
+
+.cta h2{font-size:clamp(1.7rem,4vw,2.6rem)}.cta p{max-width:600px;margin:0 auto 26px;font-size:1.1rem}
+
+.cta .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* contact */
+
+.info{display:grid;gap:14px}
+
+.info div{display:flex;gap:14px;align-items:flex-start;background:var(--surface);padding:16px 18px;border-radius:18px;box-shadow:var(--shadow)}
+
+.info i{font-style:normal;font-size:1.5rem}.info small{display:block;color:var(--muted)}
+
+form{background:var(--surface);padding:30px;border-radius:24px;box-shadow:var(--shadow);display:grid;gap:14px}
+
+label{font-weight:500;font-size:.9rem}
+
+input,textarea{width:100%;font:inherit;color:var(--text);background:var(--bg);border:2px solid transparent;border-radius:12px;padding:12px 14px;outline:0;transition:border .2s}
+
+input:focus,textarea:focus{border-color:var(--orange)}
+
+.err{color:var(--red);font-size:.8rem;min-height:1em;display:block}
+
+.bad{border-color:var(--red)}
+
+.ok{display:none;padding:14px;border-radius:12px;background:var(--green);color:#fff;font-weight:500}
+
+/* footer */
+
+footer{background:#2a1408;color:#f3e2c8;padding:60px 0 0}
+
+.fg{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.3fr;gap:32px}
+
+@media(max-width:860px){.fg{grid-template-columns:1fr 1fr}}@media(max-width:520px){.fg{grid-template-columns:1fr}}
+
+footer h4{color:var(--yellow);margin:0 0 14px;font-size:1.05rem}
+
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:.93rem}
+
+footer a:hover{color:var(--yellow)}
+
+.soc{display:flex;gap:10px;margin-top:14px}
+
+.soc a{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.12);font-weight:600;transition:.25s}
+
+.soc a:hover{background:var(--orange);transform:translateY(-4px);color:#fff}
+
+.copy{margin-top:40px;padding:18px 0 calc(18px + env(safe-area-inset-bottom,0px));border-top:1px solid rgba(255,255,255,.15);text-align:center;font-size:.85rem;opacity:.8}
+
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .7s,transform .7s}.reveal.in{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.slide .txt>*{opacity:1;transform:none}}
+
+.art img{width:min(380px,80%);aspect-ratio:1;object-fit:cover;border-radius:50%;border:6px solid var(--yellow);box-shadow:0 20px 40px rgba(0,0,0,.45);animation:float 5s ease-in-out infinite}
+
+.collage img{width:100%;height:100%;object-fit:cover;display:block}
+
+.card .pic{padding:0;overflow:hidden}
+
+.card .pic img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .5s}
+
+.card:hover .pic img{transform:scale(1.1)}
+
+</style>
+
+</head>
+
+<body>
+
+<header id="top"><div class="wrap nav">
+
+<a class="logo" href="#home"><i>🥘</i><span data-c="brand">Shahi Rajwadi Rasoi</span></a>
+
+<button class="burger" aria-label="Menu" aria-expanded="false"><b></b><b></b><b></b></button>
+
+<nav id="menu"><ul>
+
+<li><a class="l" href="#home">Home</a></li><li><a class="l" href="#about">About Us</a></li>
+
+<li><a class="l" href="#products">Our Products</a></li><li><a class="l" href="#contact">Contact Us</a></li>
+
+<li><a class="btn" href="#contact">Get in Touch</a></li></ul></nav>
+
+</div></header>
+
+
+
+<main>
+
+<section class="hero" id="home" aria-label="Featured">
+
+<div class="slide s1 on"><div class="wrap"><div class="txt"><h1>Traditional Taste, Unforgettable Crunch!</h1><p>Experience the authentic taste of freshly prepared Indian papad.</p><div><a class="btn" href="#products">Explore Our Products</a></div></div><div class="art"><img src="images/logo.jpeg" alt="Shahi Rajwadi Rasoi papad" width="380" height="380"></div></div></div>
+
+<div class="slide s2"><div class="wrap"><div class="txt"><h1>A Variety of Flavours for Every Meal</h1><p>Discover our delicious range of traditional and flavoured papads.</p><div><a class="btn" href="#about">Discover More</a></div></div><div class="art"><img src="images/logo.jpeg" alt="Shahi Rajwadi Rasoi papad" width="380" height="380"></div></div></div>
+
+<div class="slide s3"><div class="wrap"><div class="txt"><h1>Made with Quality, Served with Love</h1><p>Bringing traditional Indian flavours to your family.</p><div><a class="btn" href="#contact">Contact Us</a></div></div><div class="art"><img src="images/logo.jpeg" alt="Shahi Rajwadi Rasoi papad" width="380" height="380"></div></div></div>
+
+<button class="arrow prev" aria-label="Previous slide">‹</button><button class="arrow next" aria-label="Next slide">›</button>
+
+<div class="dots"></div>
+
+</section>
+
+
+
+<section class="about" id="about"><div class="wrap two">
+
+<div class="collage reveal"><img src="images/about2.png" alt="Shahi Rajwadi Rasoi papad" loading="lazy"></div>
+
+<div class="reveal"><h2>Shahi Rajwadi Rasoi</h2>
+
+<p>Our mission is to bring the traditional taste of India to every home. With this vision, we offer delicious, crispy and flavourful papads that make every meal more special.</p>
+
+<p>Whether it is Chana or Moong, the delicious taste of Garlic or traditional flavours, every variety of our papad adds something special to your dining experience.</p>
+
+<a class="btn" href="#why">Read More</a></div>
+
+</div></section>
+
+
+
+<section id="products"><div class="wrap">
+
+<div class="title reveal"><h2>Explore Our Delicious Rasoi Collection</h2><span></span></div>
+
+<div class="grid" id="grid"></div>
+
+</div></section>
+
+
+
+<section class="why" id="why"><div class="wrap">
+
+<div class="title reveal"><h2>Why Customers Love Our Rasoi</h2><span></span></div>
+
+<div class="feat">
+
+<div class="reveal"><i>🌾</i><h3>Premium Quality Ingredients</h3><p>Hand-picked dals, spices and rice sourced from trusted farms.</p></div>
+
+<div class="reveal"><i>🏺</i><h3>Authentic Traditional Taste</h3><p>Time-honoured family recipes, rolled and sun-dried the traditional way.</p></div>
+
+<div class="reveal"><i>✨</i><h3>Freshness &amp; Crunch</h3><p>Sealed fresh so every papad roasts or fries to a perfect crunch.</p></div>
+
+<div class="reveal"><i>🎨</i><h3>Wide Variety of Flavours</h3><p>From mild moong to fiery spicy, a papad for every palate.</p></div>
+
+</div></div></section>
+
+
+
+<section class="cta"><div class="wrap reveal">
+
+<h2>Bring Home the Taste of Tradition!</h2>
+
+<p>Get in touch with us for product enquiries, bulk orders and business opportunities.</p>
+
+<div class="btns"><a class="btn" href="#contact">Contact Us</a></div>
+
+</div></section>
+
+
+
+<section id="contact"><div class="wrap">
+
+<div class="title reveal"><h2>Contact Us</h2><span></span></div>
+
+<div class="two">
+
+<div class="info reveal">
+
+<div><i>🏭</i><p style="margin:0"><small>Company</small><b data-c="company">Shahi Rajwadi Rasoi.</b></p></div>
+
+<div><i>📞</i><p style="margin:0"><small>Phone Number</small><b data-c="phone">+91 9753399641, 7999790884</b></p></div>
+
+<div><i>💬</i><p style="margin:0"><small>WhatsApp</small><b data-c="wa">+91 9753399641</b></p></div>
+
+
+
+<div><i>📍</i><p style="margin:0"><small>Address</small><b data-c="address">Jalebi Chowk Khandwa 450001 Mp.</b></p></div>
+
+</div>
+
+<form id="form" class="reveal" novalidate>
+
+<div><label for="n">Name</label><input id="n" name="n" autocomplete="name"><span class="err"></span></div>
+
+<div><label for="p">Phone Number</label><input id="p" name="p" type="tel" autocomplete="tel"><span class="err"></span></div>
+
+<div><label for="e">Email</label><input id="e" name="e" type="email" autocomplete="email"><span class="err"></span></div>
+
+<div><label for="m">Message</label><textarea id="m" name="m" rows="4"></textarea><span class="err"></span></div>
+
+<button class="btn" type="submit">Submit</button>
+
+<div class="ok" role="status">Thank you! We will get back to you shortly.</div>
+
+</form>
+
+</div></div></section>
+
+</main>
+
+
+
+<footer><div class="wrap">
+
+<div class="fg">
+
+<div><a class="logo" href="#home" style="color:#fff"><i>🥘</i><span data-c="brand">Shahi Rajwadi Rasoi</span></a><p style="font-size:.93rem;opacity:.85">Crisp, flavourful papads made with traditional recipes and quality ingredients.</p>
+
+</div>
+
+<div><h4>Quick Links</h4><ul><li><a href="#home">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#products">Our Products</a></li><li><a href="#contact">Contact Us</a></li></ul></div>
+
+<div><h4>Products</h4><ul><li>Urad Papad</li><li>Moong Papad</li><li>Garlic Moong Papad</li><li>Garlic Chana Papad</li></ul></div>
+
+<div><h4>Contact</h4><ul><li data-c="phone">+91 9753399641 +91 7999790844</li><li data-c="address">Jalebi Chowk Khandwa 450001 Mp.</li></ul></div>
+
+</div>
+
+<div class="copy">© <span id="yr"></span> <span data-c="brand">Shahi Rajwadi Rasoi</span>. All rights reserved.</div>
+
+</div></footer>
+
+
+
+<script>
+
+/* ===== EDIT YOUR DETAILS HERE ===== */
+
+var CONFIG={brand:"Shahi Rajwadi Rasoi",company:"Shahi Rajwadi Rasoi.",phone:"+91 9753399641",wa:"+91 7999790884",waNumber:"919876543210",email:"info@swadpapad.example",address:"Jalebi Chowk Khandwa 450001 Mp."};
+
+var PRODUCTS=[
+  ["Urad Papad","Classic black-pepper urad dal papad with a bold, authentic crunch.","#fcbf49","#e0a526","images/products/urad-papad.jpg"],
+  ["Moong Dal Papad","Light, delicate and easy to digest, made from fine moong dal.","#ffe08a","#e8c350","images/products/moong-dal-papad.jpg"],
+  ["Chana Dal Papad","Spiced with red chilli, cumin and herbs for an irresistible kick.","#f4a261","#d9803c","images/products/chana-dal-papad.jpg"],
+  ["Punjabi Papad","Large, thin and crispy, the perfect partner for dal-chawal.","#ffd166","#e3b13f","images/products/punjabi-papad.jpg"],
+  ["Garlic Moong Papad","Aromatic garlic flavour that lifts every meal.","#ffeab0","#e5c878","images/products/garlic-moong-papad.jpg"],
+  ["Garlic Chana Papad","Studded with roasted cumin seeds for a warm, earthy taste.","#f6bd60","#dd9a30","images/products/garlic-chana-papad.jpg"],
+  ["Hotel Special Papad","Light and gluten-friendly, puffs up beautifully when fried.","#fff3d0","#eadba4","images/products/hotel-special-papad.jpg"],
+  ["Special Spicy Papad","Our fiery signature papad for true spice lovers.","#ef6a3c","#c94a1f","images/products/special-spicy-papad.jpg"]
+];
+
+/* Optional: give a product its own photo by adding a 5th item, e.g. ["Urad Papad","...","#fcbf49","#e0a526","images/urad.jpg"] */
+
+/* ================================== */
+
+
+
+function disc(c,d){var s='<svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="94" fill="'+d+'"/><circle cx="100" cy="100" r="88" fill="'+c+'"/>';
+
+for(var i=0;i<22;i++){var a=i*2.4,r=12+(i*37%70);s+='<circle cx="'+(100+Math.cos(a)*r).toFixed(1)+'" cy="'+(100+Math.sin(a)*r).toFixed(1)+'" r="'+(2+i%3)+'" fill="'+d+'" opacity=".7"/>'}
+
+return s+'<circle cx="100" cy="100" r="88" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="3" stroke-dasharray="6 8"/></svg>'}
+
+function wa(t){return"https://wa.me/"+CONFIG.waNumber+"?text="+encodeURIComponent(t)}
+
+document.querySelectorAll("[data-c]").forEach(function(e){var k=e.dataset.c;if(CONFIG[k])e.textContent=CONFIG[k]});
+
+document.querySelectorAll("[data-wa]").forEach(function(e){e.href=wa(e.dataset.wa);e.target="_blank";e.rel="noopener"});
+
+
+
+document.getElementById("yr").textContent=new Date().getFullYear();
+
+var tints=["#fff3d6","#ffe9e2","#e9f7e8","#fff0cc"];
+
+document.getElementById("grid").innerHTML=PRODUCTS.map(function(p,i){return'<article class="card reveal"><div class="pic" style="background:'+tints[i%4]+'"><img src="'+p[4]+'" alt="'+p[0]+'" loading="lazy" width="640" height="480" onerror="this.onerror=null;this.src=\'images/product.jpeg\'"></div><div class="body"><h3>'+p[0]+'</h3><p>'+p[1]+'</p><a class="btn" rel="noopener" href="#contact">Enquiry Now</a></div></article>'}).join("");
+
+/* header + menu */
+
+var hd=document.getElementById("top"),mn=document.getElementById("menu"),bg=document.querySelector(".burger");
+
+function sc(){hd.classList.toggle("stuck",scrollY>40)}sc();addEventListener("scroll",sc,{passive:true});
+
+bg.onclick=function(){var o=mn.classList.toggle("open");bg.setAttribute("aria-expanded",o)};
+
+mn.addEventListener("click",function(e){if(e.target.closest("a")){mn.classList.remove("open");bg.setAttribute("aria-expanded",false)}});
+
+/* slider */
+
+var sl=document.querySelectorAll(".slide"),dots=document.querySelector(".dots"),cur=0,tm;
+
+sl.forEach(function(_,i){var b=document.createElement("button");b.setAttribute("aria-label","Slide "+(i+1));b.onclick=function(){go(i)};dots.appendChild(b)});
+
+function go(n){cur=(n+sl.length)%sl.length;sl.forEach(function(s,i){s.classList.toggle("on",i==cur)});[].forEach.call(dots.children,function(d,i){d.classList.toggle("on",i==cur)});clearInterval(tm);tm=setInterval(function(){go(cur+1)},5500)}
+
+document.querySelector(".prev").onclick=function(){go(cur-1)};document.querySelector(".next").onclick=function(){go(cur+1)};go(0);
+
+/* reveal */
+
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12});
+
+document.querySelectorAll(".reveal").forEach(function(e){io.observe(e)});
+
+/* form validation */
+
+document.getElementById("form").addEventListener("submit",function(ev){ev.preventDefault();var f=ev.target,ok=true;
+
+function chk(id,t,msg){var i=f.querySelector("#"+id),er=i.parentNode.querySelector(".err"),v=i.value.trim(),bad=!t(v);i.classList.toggle("bad",bad);er.textContent=bad?msg:"";if(bad)ok=false}
+
+chk("n",function(v){return v.length>=2},"Please enter your name.");
+
+chk("p",function(v){return/^[+]?[0-9\s-]{10,14}$/.test(v)},"Enter a valid phone number.");
+
+chk("e",function(v){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)},"Enter a valid email address.");
+
+chk("m",function(v){return v.length>=5},"Please write a short message.");
+
+var s=f.querySelector(".ok");if(ok){s.style.display="block";f.reset();setTimeout(function(){s.style.display="none"},5000)}else s.style.display="none"});
+
+</script>
+
+</body>
+
+</html>
